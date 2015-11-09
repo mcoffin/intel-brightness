@@ -1,6 +1,16 @@
-# cabal sandbox
-.cabal-sandbox
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
 cabal.sandbox.config
-
-# cabal build
-dist/
+*.prof
+*.aux
+*.hp
+.stack-work/
