@@ -6,8 +6,8 @@ module IntelBrightness.Core (
 readInt :: String -> Int
 readInt = read
 
-maxBrightness :: IO Int
-maxBrightness = fmap readInt $ readFile "/sys/class/backlight/intel_backlight/max_brightness"
+maxBrightness :: String -> IO Int
+maxBrightness = fmap readInt . readFile . flip (++) "/max_brightness"
 
-setBrightness :: (Show a) => a -> IO ()
-setBrightness nb = writeFile "/sys/class/backlight/intel_backlight/brightness" $ show nb
+setBrightness :: (Show a) => String -> a -> IO ()
+setBrightness path nb = writeFile (path ++ "/brightness") $ show nb
